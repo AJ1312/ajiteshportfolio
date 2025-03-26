@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajitesh Sharma</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <nav>
             <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
+            <div class="menu-toggle">☰</div>
             <div class="nav-links">
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -22,24 +23,28 @@
         </nav>
     </header>
 
-    <main>
-        <div class="initial">
+    <main class="initial">
+        <div class="content-wrapper">
             <div class="intro-section">
                 <div class="intro-text">
-                    <h1>Hello, I'm <br><span class="red">Ajitesh Sharma</span></h1>
+                    <h1>Hello, I'm <br><span class="red typing-text"></span></h1>
                     <h2>CSE MAJORS STUDENT</h2>
-                    <p>I'm a Computer Science student specializing in Information Security at VIT. I'm interested in AI, ML, Web Programming and Informarion Security, focusing on real-world problem-solving.</p>
+                    <p>I'm a Computer Science student specializing in Information Security at VIT. I'm interested in AI, ML, Web Programming and Information Security, focusing on real-world problem-solving.</p>
                     <div id="resume-btn-container"></div>
                 </div>
+                <div class="mobile-photo-section">
+                    <img src="pro.jpeg" alt="Ajitesh Sharma">
+                </div>
             </div>
-            <div class="photo-section">
+            <div class="laptop-photo-section">
                 <img src="pro.jpeg" alt="Ajitesh Sharma">
             </div>
         </div>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            // Resume Download Button
             const resumeBtnContainer = document.getElementById('resume-btn-container');
             const downloadBtn = document.createElement('a');
             downloadBtn.href = 'Ajitesh Sharma_Resume.pdf';
@@ -47,6 +52,29 @@
             downloadBtn.textContent = 'Download Resume';
             downloadBtn.download = 'Ajitesh_Sharma_Resume.pdf';
             resumeBtnContainer.appendChild(downloadBtn);
+
+            // Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links ul');
+
+            menuToggle.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+            });
+
+            // Typing Animation
+            const typingText = document.querySelector('.typing-text');
+            const text = 'Ajitesh Sharma';
+            let index = 0;
+
+            function type() {
+                if (index < text.length) {
+                    typingText.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+
+            type();
         });
     </script>
 </body>

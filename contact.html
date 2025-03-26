@@ -5,145 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Ajitesh's Portfolio</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: #000000;
             margin: 0;
             padding: 0;
             font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color: whitesmoke;
+            line-height: 1.6;
         }
 
         .navbar {
-    background-color: #050e16;
-    border-bottom: 1px solid #050f18;
-    width: 100%;
-    padding: 15px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(5, 14, 22, 0.5);
-    transition: background-color 0.3s ease;
-}
+            background-color: #050e16;
+            border-bottom: 1px solid #050f18;
+            width: 100%;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(5, 14, 22, 0.5);
+            transition: background-color 0.3s ease;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-    width: 100%;
-    padding: 0 12%;
-    box-sizing: border-box;
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            width: 100%;
+            padding: 0 12%;
+            box-sizing: border-box;
+        }
 
-nav ul {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+        nav ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-.name {
-    color: whitesmoke;
-    font-size: 1.8rem;
-    font-weight: bolder;
-    margin-left: 2rem;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 1px;
-}
+        .name {
+            color: whitesmoke;
+            font-size: 1.8rem;
+            font-weight: bolder;
+            margin-left: 2rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 1px;
+        }
 
-a {
-    color: whitesmoke;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    position: relative;
-    transition: color 0.3s ease;
-}
+        a {
+            color: whitesmoke;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+            word-break: keep-all;
+            white-space: nowrap;
+        }
 
-a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background-color: red;
-    transition: width 0.3s ease, left 0.3s ease;
-}
+        a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: red;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
 
-a:hover {
-    color: red;
-}
+        a:hover {
+            color: red;
+        }
 
-a:hover::after {
-    width: 100%;
-    left: 0;
-}
+        a:hover::after {
+            width: 100%;
+            left: 0;
+        }
 
-a:active {
-    color: red;
-}
+        a:active {
+            color: red;
+        }
 
-h1 {
-    font-weight: bolder;
-    color: whitesmoke;
-    margin-bottom: 10px;
-}
-
-.initial {
-    display: flex;
-    justify-content: space-around;
-    border-radius: 0%;
-    margin-top: 80px;
-}
-
-.intro-section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 20px;
-    margin-top: 110px;
-    margin-left: 250px;
-    background-color: #000000;
-    width: 45%;
-    font-size: 1.8rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.intro-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.intro-section h2 {
-    color: rgb(147, 145, 145);
-    font-size: 1.4rem;
-    font-weight: normal;
-    margin-top: 5px;
-}
-.intro-section p {
-    color: rgb(255, 254, 254);
-    font-size: 1.2rem;
-    font-weight: lighter;
-    margin-top: 5px;
-}
-
-.red {
-    color: rgb(197, 36, 36);
-}
+        .red {
+            color: rgb(197, 36, 36);
+        }
 
         .container {
             max-width: 1300px;
             margin: 120px auto 50px;
             padding: 20px;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 40px;
         }
 
@@ -153,27 +116,14 @@ h1 {
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            min-width: 300px;
+            width: calc(50% - 20px);
+            max-width: 600px;
         }
 
         .contact-card h1, .message-card h2 {
             font-size: 2.2rem;
             margin-bottom: 30px;
-        }
-
-        .contact-card p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: #aaa;
-        }
-
-        .contact-card a {
-            color: rgb(197, 36, 36);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
         }
 
         .contact-card ul {
@@ -184,22 +134,42 @@ h1 {
         .contact-card li {
             margin-bottom: 20px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            width: 100%;
         }
 
-        .contact-card li img {
+        .contact-card li svg {
             width: 30px;
             height: 30px;
+            min-width: 30px;
             margin-right: 15px;
+            fill: rgb(197, 36, 36);
+            flex-shrink: 0;
+            margin-top: 5px;
         }
 
-        .contact-card li span {
+        .contact-card li .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .contact-card li .contact-info .contact-text {
             font-weight: bold;
             color: whitesmoke;
+            margin-right: 5px;
+            white-space: nowrap;
+        }
+
+        .contact-card li .contact-info .email-text a {
+            color: rgb(197, 36, 36);
+            font-size: 0.9rem;
+            margin: 5px 0 0 0;
+            word-break: break-all;
         }
 
         .message-card input {
-            width: 90%;
+            width: 100%;
             padding: 10px;
             margin-bottom: 15px;
             border: 1px solid #444;
@@ -218,6 +188,7 @@ h1 {
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.2s ease;
+            width: 100%;
         }
 
         .message-card button:hover {
@@ -229,6 +200,106 @@ h1 {
             color: rgb(4, 100, 4);
             font-weight: bold;
             display: none;
+            text-align: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background-color: whitesmoke;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media screen and (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-card, .message-card {
+                width: 90%;
+                max-width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 0 5%;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                flex-direction: column;
+                background-color: #050e16;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 90px 0;
+                height: 100vh;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                margin: 20px 0;
+            }
+
+            .name {
+                margin-left: 0;
+                font-size: 1.5rem;
+            }
+
+            .contact-card h1, .message-card h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                margin-top: 80px;
+                padding: 10px;
+            }
+
+            .contact-card, .message-card {
+                padding: 20px;
+            }
+
+            .contact-card h1, .message-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-card li svg {
+                width: 24px;
+                height: 24px;
+                min-width: 24px;
+                margin-right: 10px;
+            }
+
+            .contact-card li .contact-info .contact-text {
+                font-size: 0.9rem;
+            }
+
+            .contact-card li .contact-info .email-text a {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -236,6 +307,11 @@ h1 {
     <header>
         <nav>
             <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -250,28 +326,71 @@ h1 {
             <h1>Contact Me</h1>
             <ul>
                 <li>
-                    <img src="https://i.pinimg.com/736x/51/9b/67/519b67c5b91d6576e5133d4adc38c817.jpg" alt="Phone Icon">
-                    <span>Phone:&nbsp;</span> 9794576602
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-text">Phone</div>
+                        <div class="email-text">9794576602</div>
+                    </div>
                 </li>
                 <li>
-                    <img src="email.png" alt="Email Icon">
-                    <span>Personal Email: &nbsp;</span> <a href="mailto:13ajitesh@gmail.com"> 13ajitesh@gmail.com</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-text">Personal Email</div>
+                        <div class="email-text">
+                            <a href="mailto:13ajitesh@gmail.com">13ajitesh@gmail.com</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <img src="https://i.pinimg.com/736x/3f/e8/87/3fe887374ff3c1d3c1c5af36a976d299.jpg" alt="Email Icon">
-                    <span>College Email: &nbsp;</span> <a href="mailto:ajitesh.sharma2023@vitstudent.ac.in"> ajitesh.sharma2023@vitstudent.ac.in</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-text">College Email</div>
+                        <div class="email-text">
+                            <a href="mailto:ajitesh.sharma2023@vitstudent.ac.in">ajitesh.sharma2023@vitstudent.ac.in</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <img src="linkedin.png" alt="LinkedIn Icon">
-                    <span>LinkedIn:&nbsp; </span> <a href="https://www.linkedin.com/in/ajitesh-sharma/" target="_blank"> Ajitesh Sharma</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-text">LinkedIn</div>
+                        <div class="email-text">
+                            <a href="https://www.linkedin.com/in/ajitesh-sharma/" target="_blank">Ajitesh Sharma</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <img src="github.png" alt="GitHub Icon">
-                    <span>GitHub:&nbsp;</span> <a href="https://github.com/AJ1312" target="_blank"> AJ1312</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-text">GitHub</div>
+                        <div class="email-text">
+                            <a href="https://github.com/AJ1312" target="_blank">AJ1312</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <img src="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/14_2-512.png" alt="Address Icon">
-                    <span>Address: &nbsp;</span> VIT Vellore University, Vellore, Tamil Nadu, India
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-text">Address</div>
+                        <div class="email-text">VIT Vellore University, Vellore, Tamil Nadu, India</div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -286,6 +405,16 @@ h1 {
     </div>
 
     <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('nav ul');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            navMenu.classList.toggle('active');
+            
+            // Optional: Animate menu toggle icon
+            menuToggle.classList.toggle('active');
+        }
+
         function sendMessage() {
             let email = document.getElementById("email").value;
             let message = document.getElementById("message").value;
