@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Ajitesh's Portfolio</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+    background-color: #050e16;
+    border-bottom: 1px solid #050f18;
+    width: 100%;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(5, 14, 22, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    padding: 0 12%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.name {
+    color: whitesmoke;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    margin-left: 2rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: red;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+a:hover {
+    color: red;
+}
+
+a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+a:active {
+    color: red;
+}
+
+.red{
+    color: rgb(197, 36, 36);
+}
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding: 0 20px;
+        }
+
+        .section {
+            background-color: rgba(24, 27, 29, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+        }
+
+        .section-title {
+            color: #c52424;
+            border-bottom: 1px solid #c52424;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .detail {
+            margin-bottom: 15px;
+        }
+
+        .about{
+            color: #888;
+            margin-bottom: 5px
+        }
+        .detailtitle {
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+
+        .intern {
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .skills {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills li {
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="detail">
+                <div class="detailtitle">Bachelor's of Technology in Computer Science</div>
+                <div class="about">Specialization in Information Security</div>
+                <div>Vellore Institute of Technology, Vellore, India</div>
+                <div>Expected July 2027</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="detail">
+                <div class="detailtitle">Physicswallah</div>
+                <div class="intern">Intern | Remote | 02/2025</div>
+                <ul>
+                    <li>Contributed to product development and proof of concepts (POCs).</li>
+                    <li>Collaborated with teams to develop innovative solutions for real-world challenges.</li>
+                    <li>Achieved performance and learning goals to enhance technical and problem-solving skills.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skills">
+                <li>Java</li>
+                <li>Python</li>
+                <li>C</li>
+                <li>C++</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Git</li>
+                <li>Node.js</li>
+                <li>MATLAB</li>
+                <li>R</li>
+                <li>Assembly Language</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Extra-Curriculars</h2>
+            <div class="detail">
+                <div class="detailtitle">Core Member - ACM-VIT, Vellore</div>
+                <ul>
+                    <li>Cryptic Hunt: Core member of VIT's largest scavenger hunt, involving tech and anchoring.</li>
+                    <li>Codex Cryptum: Organized a cybersecurity and ethical hacking workshop.</li>
+                    <li>Reverse Coding: Participated in competitive coding events involving open-box thinking.</li>
+                </ul>
+            </div>
+            <div class="detail">
+                <div class="detailtitle">Secretary & Founding Member - Geospatial Club, Vellore</div>
+                <ul>
+                    <li>Started March 2025, planning on creating awarness and creating some of the best events of VIT.</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
