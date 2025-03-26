@@ -6,7 +6,7 @@ Welcome to my **personal portfolio website**! 🚀
 Built using **HTML, CSS, and JavaScript**, this site showcases my skills, projects, and experience.
 
 ## 🔗 Live Demo
-👉 [Visit My Portfolio](https://AJ1312.github.io/ajitesh-portfolio/)  
+👉 [Visit My Portfolio](https://aj1312.github.io/ajiteshportfolio/)  
 
 
 ## 🛠️ Tech Stack
