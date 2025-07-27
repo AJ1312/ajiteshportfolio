@@ -15,7 +15,7 @@ body {
 .navbar {
     background-color: #050e16;
     width: 100%;
-    padding: 15px 0;
+    padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 60px;
     width: 100%;
     padding: 0 12%;
     box-sizing: border-box;
@@ -250,7 +250,7 @@ nav {
     }
 
     nav {
-        padding: 0 5%;
+        padding: 0 3%;
         position: relative;
     
     }
@@ -258,8 +258,8 @@ nav {
     .menu-toggle {
         display: block;
         position: absolute;
-        top: 25px;
-        right: 20px;
+        top: 8px;
+        right: 2px;
     }
 
     .nav-links ul {
@@ -267,7 +267,7 @@ nav {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 90px;
+        top: 60px;
         left: 0;
         background-color: #050e16;
         padding: 20px 0;
@@ -290,7 +290,7 @@ nav {
 
     .intro-section p {
         font-size: 1rem;
-        margin-top: 100px; /* Increased margin for phones */
+        margin-top: 15px; /* Reduced margin for better spacing */
     }
 }
 
@@ -529,7 +529,7 @@ body {
 
 .navbar {
     background-color: #000000;
-    border-bottom: 1px solid #1a1a1a;
+    /* border-bottom: 1px solid #1a1a1a; */
 }
 
 .nav-card {
@@ -832,7 +832,7 @@ body {
     .menu-toggle {
         display: block;
         position: absolute;
-        top: 25px;
+        top: 8px;
         right: 20px;
     }
 
