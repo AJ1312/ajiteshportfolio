@@ -4,376 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Ajitesh's Portfolio</title>
-    <style>
-        body {
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: whitesmoke;
-        }
-        .navbar {
-            background-color: #050e16;
-            border-bottom: 1px solid #050f18;
-            width: 100%;
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(5, 14, 22, 0.5);
-            transition: background-color 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 90px;
-            width: 100%;
-            padding: 0 12%;
-            box-sizing: border-box;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .name {
-            color: whitesmoke;
-            font-size: 1.8rem;
-            font-weight: bolder;
-            margin-left: 2rem;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            letter-spacing: 1px;
-        }
-
-        a {
-            color: whitesmoke;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background-color: red;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        a:hover {
-            color: red;
-        }
-
-        a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        a:active {
-            color: red;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1100;
-            position: relative;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: whitesmoke;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            nav ul {
-                position: fixed;
-                right: -100%;
-                top: 0;
-                flex-direction: column;
-                background-color: #050e16;
-                width: 100%;
-                height: 100vh;
-                justify-content: center;
-                align-items: center;
-                transition: right 0.5s ease-in-out;
-                z-index: 1000;
-            }
-
-            nav ul.active {
-                right: 0;
-            }
-
-            nav ul li {
-                margin: 20px 0;
-            }
-
-            .name {
-                margin-left: 1rem;
-                font-size: 1.3rem;
-            }
-
-            /* Hamburger Menu Animation */
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-        }
-
-        /* Rest of the existing styles remain the same */
-        .initial {
-            display: flex;
-            justify-content: space-around;
-            border-radius: 0%;
-            margin-top: 80px;
-        }
-
-        .intro-section {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin: 20px;
-            margin-top: 110px;
-            margin-left: 250px;
-            background-color: #000000;
-            width: 45%;
-            font-size: 1.8rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
-
-        .intro-section h2 {
-            color: rgb(147, 145, 145);
-            font-size: 1.4rem;
-            font-weight: normal;
-            margin-top: 5px;
-        }
-
-        .intro-section p {
-            color: rgb(255, 254, 254);
-            font-size: 1.2rem;
-            font-weight: lighter;
-            margin-top: 5px;
-        }
-
-        .red {
-            color: rgb(197, 36, 36);
-        }
-
-        /* Existing project grid styles */
-        .container {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 0 20px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: whitesmoke;
-        }
-
-        .section-header p {
-            color: #888;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        @media screen and (max-width: 1024px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .intro-section {
-                margin-left: 0;
-                width: 100%;
-            }
-        }
-
-        .project-card {
-            background-color: #111;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.03);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: whitesmoke;
-        }
-
-        .project-tech {
-            color: #888;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .project-description {
-            color: #aaa;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .project-button {
-            display: inline-block;
-            background-color: rgb(197, 36, 36);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            align-self: flex-start;
-            transition: background-color 0.2s ease;
-        }
-
-        .project-button:hover {
-            background-color: #a01c1c;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <nav>
             <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="menu-toggle">☰</div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="section-header">
-            <h1>Projects</h1>
-            <p>Here are some of the projects I have worked on, my goal is to continue learning and creating amazing projects. Check them out below!</p>
-        </div>
-
+    <main class="page-content">
+        <h1 class="page-title">My Projects</h1>
+        
         <div class="projects-grid">
             <div class="project-card">
-                <img src="lost.png" alt="Searching Lost Person" class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Searching Lost Person</h2>
-                    <div class="project-tech">MongoDB, Express, Node.js, HTML, CSS, JavaScript, FaceAPI, TensorFlow | March 2025</div>
-                    <p class="project-description">
-                        Developed a web application to assist in finding lost children using a searchable database.
-                        Integrated Face API and TensorFlow for facial recognition to match lost children with uploaded images.
-                        Enabled users to register, file complaints, upload images, and search for missing persons.
-                    </p>
-                    <a href="https://pranavsoftware.github.io/Searching-Lost-Person-project/" class="project-button">View project →</a>
+                <img src="nutriai.png" alt="Nutri Baba" class="project-image">
+                <h3 class="project-title">Nutri Baba</h3>
+                <p class="project-description">
+                    An AI-powered nutrition tracking application that leverages machine learning algorithms to analyze dietary intake, 
+                    provide personalized nutrition recommendations, and help users maintain healthier eating habits. Features include 
+                    food recognition, calorie tracking, and intelligent meal planning with real-time nutritional analysis.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">AI</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/AJ1312/Nutri-Baba" target="_blank" class="project-link">GitHub</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="cli.png" alt="CLI RPG Game" class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">CLI RPG Game</h2>
-                    <div class="project-tech">Rust | GitHub: ACM-VIT/cli-rpg</div>
-                    <p class="project-description">
-                        Contributed to the development of a CLI-based RPG game using Rust.
-                        Focused on JSON file handling, tutorial listings, and content management.
-                    </p>
-                    <a href="https://github.com/ACM-VIT/cli-rpg" class="project-button">View project →</a>
+                <img src="https://f.hubspotusercontent10.net/hubfs/6897318/Blog/cicd-push-based-deployment.png" alt="SnapSeat CI/CD" class="project-image">
+                <h3 class="project-title">SnapSeat</h3>
+                <p class="project-description">
+                    A comprehensive event booking platform inspired by Ticketmaster, featuring real-time seat selection and secure payment gateway integration. Built with enterprise-level CI/CD pipeline implementation featuring automated testing, deployment, and monitoring. The platform uses modern DevOps practices including containerization, infrastructure as code, automated rollbacks, and microservices architecture deployed on cloud infrastructure with high availability and scalability.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Jenkins</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">GitHub Actions</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="nutriai.png" alt="Health & Wellness Platform" class="project-image">
-                <div class="project-content">
-                    <h2 class="project-title">Health & Wellness Platform</h2>
-                    <div class="project-tech">HTML, CSS, JavaScript, GroqLlama API, Python | Ongoing</div>
-                    <p class="project-description">
-                        Built a comprehensive health planning site featuring personalized diet plans, social & streak features, custom meal creation, and a calorie counter.
-                        Future Scope: AI-based personalized exercise plans and training.
-                        Gained experience in brainstorming, coding, debugging, and project management.
-                    </p>
-                    <a href="https://github.com/pranavsoftware/NutriAI" class="project-button">View project →</a>
+                <img src="cli.png" alt="Command Line Interface" class="project-image">
+                <h3 class="project-title">Advanced CLI Tool</h3>
+                <p class="project-description">
+                    A sophisticated command-line interface tool designed to streamline development workflows and automate 
+                    repetitive tasks. Features include project scaffolding, automated code generation, dependency management, 
+                    and integration with popular development tools, significantly enhancing developer productivity.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">CLI</span>
+                    <span class="tech-tag">Automation</span>
+                    <span class="tech-tag">DevOps</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="lost.png" alt="Lost and Found System" class="project-image">
+                <h3 class="project-title">Lost & Found System</h3>
+                <p class="project-description">
+                    A comprehensive web-based platform that connects people who have lost items with those who have found them. 
+                    Features location-based matching using geospatial algorithms, secure communication channels, image recognition 
+                    for item verification, and real-time notifications to facilitate quick reunification of lost items.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">MongoDB</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="pro.jpeg" alt="Portfolio Website" class="project-image">
+                <h3 class="project-title">Personal Portfolio</h3>
+                <p class="project-description">
+                    A responsive and modern portfolio website showcasing my projects, skills, and experience. 
+                    Built with clean design principles, optimized for performance across all devices, and featuring 
+                    interactive elements, smooth animations, and professional UI/UX design patterns.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Responsive Design</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/AJ1312/ajiteshportfolio" target="_blank" class="project-link">GitHub</a>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+
+        <div class="section">
+            <br>
+            <h2>Project Development Process</h2>
+            <p>Each project follows a structured development approach:</p>
+            <ul>
+                <li><strong>Planning & Research:</strong> Understanding requirements and researching best practices</li>
+                <li><strong>Design & Architecture:</strong> Creating wireframes and system architecture</li>
+                <li><strong>Development:</strong> Writing clean, maintainable code with proper documentation</li>
+                <li><strong>Testing:</strong> Comprehensive testing to ensure reliability and performance</li>
+                <li><strong>Deployment:</strong> Deploying to production with proper CI/CD pipelines</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Technologies I Love Working With</h2>
+            <p>I'm passionate about exploring cutting-edge technologies and frameworks. Currently, I'm focusing on:</p>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Frontend Development</h3>
+                    <p>React, JavaScript ES6+, HTML5, CSS3, Responsive Design, UI/UX Principles</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Backend Development</h3>
+                    <p>Python, Java, REST APIs, Database Design, Microservices Architecture</p>
+                </div>
+                <div class="skill-item">
+                    <h3>DevOps & Cloud</h3>
+                    <p>Docker, Kubernetes, Jenkins, AWS, CI/CD Pipelines, Infrastructure as Code</p>
+                </div>
+                <div class="skill-item">
+                    <h3>AI & Machine Learning</h3>
+                    <p>Python, TensorFlow, Scikit-learn, Data Analysis, Computer Vision</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Information Security</h3>
+                    <p>Cybersecurity, Ethical Hacking, Security Auditing, Vulnerability Assessment</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Development Tools</h3>
+                    <p>Git, VS Code, Linux, Shell Scripting, Agile Methodologies</p>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script>
-        function toggleMenu() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.querySelector('nav ul');
-            
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -8,6 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- F1 Style Background Animation -->
+    <div class="f1-background">
+        <div class="racing-lines"></div>
+        <div class="speed-indicators">
+            <div class="speed-line"></div>
+            <div class="speed-line"></div>
+            <div class="speed-line"></div>
+        </div>
+    </div>
+
     <header class="navbar">
         <nav>
             <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
@@ -23,59 +33,85 @@
         </nav>
     </header>
 
-    <main class="initial">
+    <main class="initial main-content">
         <div class="content-wrapper">
             <div class="intro-section">
-                <div class="intro-text">
+                <div class="intro-text f1-entrance">
                     <h1>Hello, I'm <br><span class="red typing-text"></span></h1>
-                    <h2>CSE MAJORS STUDENT</h2>
-                    <p>I'm a Computer Science student specializing in Information Security at VIT. I'm interested in AI, ML, Web Programming and Information Security, focusing on real-world problem-solving.</p>
-                    <div id="resume-btn-container"></div>
+                    <h2 class="f1-slide-in">CSE MAJORS STUDENT</h2>
+                    <p class="f1-fade-in">I'm a Computer Science student specializing in Information Security at VIT. I'm interested in AI, ML, Web Programming and Information Security, focusing on real-world problem-solving.</p>
+                    <div id="resume-btn-container" class="f1-zoom-in"></div>
                 </div>
-                <div class="mobile-photo-section">
+                <div class="mobile-photo-section f1-rotate-in">
                     <img src="pro.jpeg" alt="Ajitesh Sharma">
                 </div>
             </div>
-            <div class="laptop-photo-section">
+            <div class="laptop-photo-section f1-scale-in">
                 <img src="pro.jpeg" alt="Ajitesh Sharma">
             </div>
         </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Resume Download Button
-            const resumeBtnContainer = document.getElementById('resume-btn-container');
-            const downloadBtn = document.createElement('a');
-            downloadBtn.href = 'Ajitesh Sharma_Resume.pdf';
-            downloadBtn.className = 'download-btn';
-            downloadBtn.textContent = 'Download Resume';
-            downloadBtn.download = 'Ajitesh_Sharma_Resume.pdf';
-            resumeBtnContainer.appendChild(downloadBtn);
+    <!-- Navigation Cards at Bottom -->
+    <section class="nav-cards-section f1-cards-entrance">
+        <h2 class="section-title">Explore My Portfolio</h2>
+        <div class="nav-cards">
+            <div class="nav-card" data-page="about.html">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+                <h3>About Me</h3>
+                <p>Learn about my education, experience, and technical skills</p>
+            </div>
+            <div class="nav-card" data-page="projects.html">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                    </svg>
+                </div>
+                <h3>Projects</h3>
+                <p>Explore my latest projects and technical achievements</p>
+            </div>
+            <div class="nav-card" data-page="contact.html">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <h3>Contact</h3>
+                <p>Get in touch and let's build something amazing together</p>
+            </div>
+        </div>
+    </section>
 
-            // Menu Toggle
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links ul');
+    <!-- Hidden Easter Eggs Section (without floating bracket and spiral) -->
+    <div class="hidden-easter-eggs">
+        <div class="matrix-rain"></div>
+    </div>
 
-            menuToggle.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-            });
+    <!-- Easter Eggs Section -->
+    <div class="easter-eggs">
+        <div class="konami-code" title="Try the Konami Code!">🎮</div>
+        <div class="secret-message" id="secret-message">You found a secret! 🎉</div>
+    </div>
 
-            // Typing Animation
-            const typingText = document.querySelector('.typing-text');
-            const text = 'Ajitesh Sharma';
-            let index = 0;
+    <!-- Secret Developer Console -->
+    <div id="dev-console" class="dev-console">
+        <div class="console-header">
+            <span>Developer Console</span>
+            <button class="console-close">×</button>
+        </div>
+        <div class="console-content">
+            <div class="console-line">$ whoami</div>
+            <div class="console-output">ajitesh_sharma</div>
+            <div class="console-line">$ skills --list</div>
+            <div class="console-output">JavaScript, Python, Java, React, Node.js, DevOps...</div>
+            <div class="console-line">$ echo "Thanks for exploring!" 🚀</div>
+        </div>
+    </div>
 
-            function type() {
-                if (index < text.length) {
-                    typingText.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(type, 100);
-                }
-            }
-
-            type();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

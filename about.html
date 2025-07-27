@@ -4,368 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Ajitesh's Portfolio</title>
-    <style>
-        body {
-            background-color: #0a0a0a;
-            color: #e0e0e0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        
-        /* Navigation Styles */
-        .navbar {
-            background-color: #050e16;
-            border-bottom: 1px solid #050f18;
-            width: 100%;
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(5, 14, 22, 0.5);
-            transition: background-color 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 90px;
-            width: 100%;
-            padding: 0 12%;
-            box-sizing: border-box;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .name {
-            color: whitesmoke;
-            font-size: 1.8rem;
-            font-weight: bolder;
-            margin-left: 2rem;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            letter-spacing: 1px;
-        }
-
-        a {
-            color: whitesmoke;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background-color: red;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        a:hover {
-            color: red;
-        }
-
-        a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        a:active {
-            color: red;
-        }
-
-        .red {
-            color: rgb(197, 36, 36);
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1100;
-            position: relative;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: whitesmoke;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        /* Container and Section Styles */
-        .container {
-            max-width: 1200px;
-            margin: 50px auto 0;
-            padding: 0 20px;
-        }
-
-        .section {
-            background-color: rgba(24, 27, 29, 0.7);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 1.1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            color: #c52424;
-            border-bottom: 1px solid #c52424;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background-color: #c52424;
-            transition: left 0.5s ease;
-        }
-
-        .section-title:hover::after {
-            left: 0;
-        }
-
-        .detail {
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .about {
-            color: #888;
-            margin-bottom: 5px;
-        }
-
-        .detailtitle {
-            font-weight: bold;
-            color: #e0e0e0;
-            transition: color 0.3s ease;
-        }
-
-        .detail:hover .detailtitle {
-            color: #c52424;
-        }
-
-        .intern {
-            color: #888;
-            margin-bottom: 5px;
-        }
-
-        .skills {
-            columns: 2;
-            -webkit-columns: 2;
-            -moz-columns: 2;
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .skills li {
-            margin-bottom: 10px;
-            color: #aaa;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .skills li:hover {
-            transform: translateX(10px);
-            color: #c52424;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            nav ul {
-                position: fixed;
-                right: -100%;
-                top: 0;
-                flex-direction: column;
-                background-color: #050e16;
-                width: 100%;
-                height: 100vh;
-                justify-content: center;
-                align-items: center;
-                transition: right 0.5s ease-in-out;
-                z-index: 1000;
-            }
-
-            nav ul.active {
-                right: 0;
-            }
-
-            nav ul li {
-                margin: 20px 0;
-            }
-
-            .name {
-                margin-left: 1rem;
-                font-size: 1.3rem;
-            }
-
-            .skills {
-                columns: 1;
-                -webkit-columns: 1;
-                -moz-columns: 1;
-            }
-
-            /* Hamburger Menu Animation */
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <nav>
             <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="menu-toggle">☰</div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
         </nav>
     </header>
-
-    <div class="container">
+    <br>
+    <main class="page-content">
+        <br>
+        <h1 class="page-title">About Me</h1>
+        
         <div class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="detail">
-                <div class="detailtitle">Bachelor's of Technology in Computer Science</div>
-                <div class="about">Specialization in Information Security</div>
-                <div>Vellore Institute of Technology, Vellore, India</div>
-                <div>Expected July 2027</div>
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M5,3H7V5H21V19H19V21H5V19H3V5H5V3M5,5V19H19V5H5M11,7H13V17H11V7Z"/></svg> Education</h2>
+            <div class="education-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"/></svg> Bachelor's of Technology in Computer Science</h3>
+                <p><strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/></svg> Specialization:</strong> Information Security</p>
+                <p><strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M15,4V6H18V18H16V16H9.5L7.5,14H16V12H6V10H16V8H8V6H16V4H15M2,2V4H4V20H6V4H8V2H2Z"/></svg> Institution:</strong> Vellore Institute of Technology, Vellore, India</p>
+                <p><strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/></svg> Expected Graduation:</strong> July 2027</p>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="detail">
-                <div class="detailtitle">Physicswallah</div>
-                <div class="intern">Intern | Remote | 02/2025</div>
-                <ul>
-                    <li>Contributed to product development and proof of concepts (POCs).</li>
-                    <li>Collaborated with teams to develop innovative solutions for real-world challenges.</li>
-                    <li>Achieved performance and learning goals to enhance technical and problem-solving skills.</li>
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M14,6V4H20V6H14M20,8A2,2 0 0,1 22,10V16A2,2 0 0,1 20,18H4A2,2 0 0,1 2,16V10A2,2 0 0,1 4,8H20Z"/></svg> Experience</h2>
+            <div class="experience-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M12,3C13.73,3 16.4,6.2 16.4,10.5C16.4,11.1 16.3,11.7 16.2,12.3L21,12L22,16H19L18,12H16.2C15.8,12.8 15.3,13.5 14.6,14.1L13.5,21H10.5L9.4,14.1C8.7,13.5 8.2,12.8 7.8,12H6L5,16H2L3,12L7.8,12.3C7.7,11.7 7.6,11.1 7.6,10.5C7.6,6.2 10.27,3 12,3Z"/></svg> Software Development Intern - Physicswallah</h3>
+                <p><strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/></svg> Duration:</strong> February 2025 | <svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M16.36,14C16.44,13.3 16.5,12.61 16.5,12C16.5,11.39 16.44,10.7 16.36,10H19.74C19.9,10.64 20,11.31 20,12C20,12.69 19.9,13.36 19.74,14M14.59,19.56C15.19,18.45 15.65,17.25 15.97,16H18.92C17.96,17.65 16.43,18.93 14.59,19.56M14.34,14H9.66C9.56,13.32 9.5,12.66 9.5,12C9.5,11.34 9.56,10.68 9.66,10H14.34C14.43,10.68 14.5,11.34 14.5,12C14.5,12.66 14.43,13.32 14.34,14M12,19.96C11.17,18.76 10.5,17.43 10.09,16H13.91C13.5,17.43 12.83,18.76 12,19.96M8,8H5.08C6.03,6.34 7.57,5.06 9.4,4.44C8.8,5.55 8.35,6.75 8,8M5.08,16H8C8.35,17.25 8.8,18.45 9.4,19.56C7.57,18.93 6.03,17.65 5.08,16M4.26,14C4.1,13.36 4,12.69 4,12C4,11.31 4.1,10.64 4.26,10H7.64C7.56,10.7 7.5,11.39 7.5,12C7.5,12.61 7.56,13.3 7.64,14M12,4.03C12.83,5.23 13.5,6.57 13.91,8H10.09C10.5,6.57 11.17,5.23 12,4.03M18.92,8H15.97C15.65,6.75 15.19,5.55 14.59,4.44C16.43,5.07 17.96,6.34 18.92,8Z"/></svg> Remote</p>
+                <ul class="fun-list">
+                    <li>Contributed to product development initiatives and created proof of concepts (POCs) for new features, improving user engagement by implementing innovative solutions.</li>
+                    <li>Collaborated with cross-functional teams including designers, product managers, and senior developers to deliver high-quality software solutions for EdTech platform.</li>
+                    <li>Worked on full-stack development tasks, implementing both frontend interfaces and backend APIs while following industry best practices and coding standards.</li>
+                    <li>Participated in code reviews, sprint planning, and agile development processes, enhancing team productivity and code quality.</li>
+                    <li>Gained hands-on experience with modern development tools, version control systems, and deployment pipelines in a production environment.</li>
                 </ul>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Skills</h2>
-            <ul class="skills">
-                <li>Java</li>
-                <li>Python</li>
-                <li>C</li>
-                <li>C++</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Git</li>
-                <li>Node.js</li>
-                <li>MATLAB</li>
-                <li>R</li>
-                <li>Assembly Language</li>
-            </ul>
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M5,16L3,14L5,12L3,10L5,8H21L19,10L21,12L19,14L21,16H5Z"/></svg> Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M22.7,19L13.6,9.9C14.5,7.6 14,4.9 12.1,3C10.1,1 7.1,0.6 4.7,1.7L9,6L6,9L1.6,4.7C0.4,7.1 0.9,10.1 2.9,12.1C4.8,14 7.5,14.5 9.8,13.6L18.9,22.7C19.3,23.1 19.9,23.1 20.3,22.7L22.6,20.4C23.1,20 23.1,19.3 22.7,19Z"/></svg> IBM DevOps, Agile and Design Thinking</h3>
+                    <p><strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M15,4V6H18V18H16V16H9.5L7.5,14H16V12H6V10H16V8H8V6H16V4H15M2,2V4H4V20H6V4H8V2H2Z"/></svg> Issuer:</strong> IBM | <strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/></svg> Year:</strong> 2024</p>
+                    <p>Comprehensive certification covering DevOps practices, Agile methodologies, and design thinking principles for modern software development. Includes hands-on experience with CI/CD pipelines, containerization, and collaborative development workflows.</p>
+                </div>
+                <div class="certification-card">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.65 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/></svg> IBM DevOps Fundamentals</h3>
+                    <p><strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M15,4V6H18V18H16V16H9.5L7.5,14H16V12H6V10H16V8H8V6H16V4H15M2,2V4H4V20H6V4H8V2H2Z"/></svg> Issuer:</strong> IBM | <strong><svg width="16" height="16" viewBox="0 0 24 24" fill="#c52424"><path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/></svg> Year:</strong> 2024</p>
+                    <p>Foundational certification in DevOps practices, including CI/CD pipelines, automation, infrastructure as code, monitoring, and collaborative development workflows. Covers Docker, Kubernetes, and cloud deployment strategies.</p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Extra-Curriculars</h2>
-            <div class="detail">
-                <div class="detailtitle">Core Member - ACM-VIT, Vellore</div>
-                <ul>
-                    <li>Cryptic Hunt: Core member of VIT's largest scavenger hunt, involving tech and anchoring.</li>
-                    <li>Codex Cryptum: Organized a cybersecurity and ethical hacking workshop.</li>
-                    <li>Reverse Coding: Participated in competitive coding events involving open-box thinking.</li>
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M22.7,19L13.6,9.9C14.5,7.6 14,4.9 12.1,3C10.1,1 7.1,0.6 4.7,1.7L9,6L6,9L1.6,4.7C0.4,7.1 0.9,10.1 2.9,12.1C4.8,14 7.5,14.5 9.8,13.6L18.9,22.7C19.3,23.1 19.9,23.1 20.3,22.7L22.6,20.4C23.1,20 23.1,19.3 22.7,19Z"/></svg> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z"/></svg> Programming Languages</h3>
+                    <p>Java, Python, C, C++, JavaScript, Assembly Language</p>
+                </div>
+                <div class="skill-item">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M16.36,14C16.44,13.3 16.5,12.61 16.5,12C16.5,11.39 16.44,10.7 16.36,10H19.74C19.9,10.64 20,11.31 20,12C20,12.69 19.9,13.36 19.74,14M14.59,19.56C15.19,18.45 15.65,17.25 15.97,16H18.92C17.96,17.65 16.43,18.93 14.59,19.56M14.34,14H9.66C9.56,13.32 9.5,12.66 9.5,12C9.5,11.34 9.56,10.68 9.66,10H14.34C14.43,10.68 14.5,11.34 14.5,12C14.5,12.66 14.43,13.32 14.34,14M12,19.96C11.17,18.76 10.5,17.43 10.09,16H13.91C13.5,17.43 12.83,18.76 12,19.96M8,8H5.08C6.03,6.34 7.57,5.06 9.4,4.44C8.8,5.55 8.35,6.75 8,8M5.08,16H8C8.35,17.25 8.8,18.45 9.4,19.56C7.57,18.93 6.03,17.65 5.08,16M4.26,14C4.1,13.36 4,12.69 4,12C4,11.31 4.1,10.64 4.26,10H7.64C7.56,10.7 7.5,11.39 7.5,12C7.5,12.61 7.56,13.3 7.64,14M12,4.03C12.83,5.23 13.5,6.57 13.91,8H10.09C10.5,6.57 11.17,5.23 12,4.03M18.92,8H15.97C15.65,6.75 15.19,5.55 14.59,4.44C16.43,5.07 17.96,6.34 18.92,8Z"/></svg> Web Technologies</h3>
+                    <p>HTML, CSS, JavaScript, React, Node.js, Express.js</p>
+                </div>
+                <div class="skill-item">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.65 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/></svg> DevOps & CI/CD</h3>
+                    <p>Git, GitHub Actions, Jenkins, Docker, Kubernetes, CI/CD Pipelines, Automation, Infrastructure as Code</p>
+                </div>
+                <div class="skill-item">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"/></svg> Cloud & Infrastructure</h3>
+                    <p>AWS, Cloud Deployment, Infrastructure as Code, Monitoring</p>
+                </div>
+                <div class="skill-item">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M22.7,19L13.6,9.9C14.5,7.6 14,4.9 12.1,3C10.1,1 7.1,0.6 4.7,1.7L9,6L6,9L1.6,4.7C0.4,7.1 0.9,10.1 2.9,12.1C4.8,14 7.5,14.5 9.8,13.6L18.9,22.7C19.3,23.1 19.9,23.1 20.3,22.7L22.6,20.4C23.1,20 23.1,19.3 22.7,19Z"/></svg> Development Tools</h3>
+                    <p>VS Code, Git, MATLAB, R, Linux, Terminal/Shell Scripting</p>
+                </div>
+                <div class="skill-item">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M5,16L3,14L5,12L3,10L5,8H21L19,10L21,12L19,14L21,16H5Z"/></svg> Specializations</h3>
+                    <p>Information Security, AI/ML, Web Development, DevOps, Agile Methodologies</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,13 12,19.5 12,19.5C12,19.5 17,13 17,9A5,5 0 0,0 12,4Z"/></svg> Extra-Curricular Activities</h2>
+            <div class="activity-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M5,16L3,14L5,12L3,10L5,8H21L19,10L21,12L19,14L21,16H5Z"/></svg> Core Member - ACM-VIT, Vellore</h3>
+                <ul class="fun-list">
+                    <li><strong>Cryptic Hunt:</strong> Core member of VIT's largest scavenger hunt, involving tech and anchoring.</li>
+                    <li><strong>Codex Cryptum:</strong> Organized a cybersecurity and ethical hacking workshop.</li>
+                    <li><strong>Reverse Coding:</strong> Participated in competitive coding events involving open-box thinking.</li>
                 </ul>
             </div>
-            <div class="detail">
-                <div class="detailtitle">Secretary & Founding Member - Geospatial Club, Vellore</div>
-                <ul>
+            
+            <div class="activity-card">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="#c52424"><path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,13 12,19.5 12,19.5C12,19.5 17,13 17,9A5,5 0 0,0 12,4Z"/></svg> Secretary & Founding Member - Geospatial Club, Vellore</h3>
+                <ul class="fun-list">
                     <li>Started March 2025, planning on creating awareness and creating some of the best events of VIT.</li>
                 </ul>
             </div>
         </div>
-    </div>
 
-    <script>
-        function toggleMenu() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMenu = document.querySelector('nav ul');
-            
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        }
+        <div class="section">
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M12,2A2,2 0 0,1 14,4A2,2 0 0,1 12,6A2,2 0 0,1 10,4A2,2 0 0,1 12,2M21,9V7L15,1H5C3.89,1 3,1.89 3,3V7H9V9L12,6L15,9V7H21M21,11H15V13L12,10L9,13V11H3V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V11Z"/></svg> About Me</h2>
+            <div class="about-content">
+                <p>I'm a passionate Computer Science student specializing in Information Security at VIT Vellore. My journey in technology is driven by a deep curiosity for solving complex problems and building innovative solutions that make a real-world impact.</p>
+                
+                <p>With expertise spanning across multiple domains including AI/ML, full-stack development, cybersecurity, and DevOps, I thrive in environments that challenge me to think creatively and push technological boundaries. My experience ranges from developing AI-powered applications to implementing robust CI/CD pipelines and security solutions.</p>
+                
+                <p>I'm particularly interested in the intersection of artificial intelligence and cybersecurity, exploring how machine learning can enhance security systems and threat detection. My hands-on experience with DevOps practices and cloud technologies allows me to build scalable, secure, and efficient systems.</p>
+                
+                <p>Beyond technical skills, I'm a natural leader and collaborator, as evidenced by my roles in ACM-VIT and as a founding member of the Geospatial Club. I believe in continuous learning, knowledge sharing, and contributing to the tech community through workshops, events, and open-source projects.</p>
+                
+                <p>When I'm not immersed in code, you'll find me exploring the latest developments in emerging technologies, participating in hackathons, or mentoring fellow students in their programming journey. I also enjoy gaming, reading tech blogs, and experimenting with new frameworks and tools!</p>
+            </div>
+        </div>
+    </main>
 
-        // Scroll-triggered section animations
-        function checkSections() {
-            const sections = document.querySelectorAll('.section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (sectionTop < windowHeight * 0.75) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        // Add scroll event listener
-        window.addEventListener('scroll', checkSections);
-        // Initial check in case some sections are already in view
-        checkSections();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

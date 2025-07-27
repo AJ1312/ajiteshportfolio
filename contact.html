@@ -4,435 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Ajitesh's Portfolio</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #000000;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: whitesmoke;
-            line-height: 1.6;
-        }
-
-        .navbar {
-            background-color: #050e16;
-            border-bottom: 1px solid #050f18;
-            width: 100%;
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(5, 14, 22, 0.5);
-            transition: background-color 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 90px;
-            width: 100%;
-            padding: 0 12%;
-            box-sizing: border-box;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .name {
-            color: whitesmoke;
-            font-size: 1.8rem;
-            font-weight: bolder;
-            margin-left: 2rem;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            letter-spacing: 1px;
-        }
-
-        a {
-            color: whitesmoke;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            position: relative;
-            transition: color 0.3s ease;
-            word-break: keep-all;
-            white-space: nowrap;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background-color: red;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        a:hover {
-            color: red;
-        }
-
-        a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        a:active {
-            color: red;
-        }
-
-        .red {
-            color: rgb(197, 36, 36);
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 120px auto 50px;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .contact-card, .message-card {
-            flex: 1;
-            background-color: #111;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            min-width: 300px;
-            width: calc(50% - 20px);
-            max-width: 600px;
-        }
-
-        .contact-card h1, .message-card h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-        }
-
-        .contact-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-card li {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        .contact-card li svg {
-            width: 30px;
-            height: 30px;
-            min-width: 30px;
-            margin-right: 15px;
-            fill: rgb(197, 36, 36);
-            flex-shrink: 0;
-            margin-top: 5px;
-        }
-
-        .contact-card li .contact-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .contact-card li .contact-info .contact-text {
-            font-weight: bold;
-            color: whitesmoke;
-            margin-right: 5px;
-            white-space: nowrap;
-        }
-
-        .contact-card li .contact-info .email-text a {
-            color: rgb(197, 36, 36);
-            font-size: 0.9rem;
-            margin: 5px 0 0 0;
-            word-break: break-all;
-        }
-
-        .message-card input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #444;
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: #333;
-            color: whitesmoke;
-        }
-
-        .message-card button {
-            background-color: rgb(197, 36, 36);
-            color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            width: 100%;
-        }
-
-        .message-card button:hover {
-            background-color: #a01c1c;
-        }
-
-        .confirmation {
-            margin-top: 10px;
-            color: rgb(4, 100, 4);
-            font-weight: bold;
-            display: none;
-            text-align: center;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-toggle span {
-            height: 3px;
-            width: 25px;
-            background-color: whitesmoke;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        /* Media Queries for Responsiveness */
-        @media screen and (max-width: 1024px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-card, .message-card {
-                width: 90%;
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            nav {
-                padding: 0 5%;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            nav ul {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                flex-direction: column;
-                background-color: #050e16;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 90px 0;
-                height: 100vh;
-            }
-
-            nav ul.active {
-                left: 0;
-            }
-
-            nav ul li {
-                margin: 20px 0;
-            }
-
-            .name {
-                margin-left: 0;
-                font-size: 1.5rem;
-            }
-
-            .contact-card h1, .message-card h2 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .container {
-                margin-top: 80px;
-                padding: 10px;
-            }
-
-            .contact-card, .message-card {
-                padding: 20px;
-            }
-
-            .contact-card h1, .message-card h2 {
-                font-size: 1.5rem;
-            }
-
-            .contact-card li svg {
-                width: 24px;
-                height: 24px;
-                min-width: 24px;
-                margin-right: 10px;
-            }
-
-            .contact-card li .contact-info .contact-text {
-                font-size: 0.9rem;
-            }
-
-            .contact-card li .contact-info .email-text a {
-                font-size: 0.8rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <nav>
             <div class="name"><span class="red">Ajitesh's </span>Portfolio</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="menu-toggle">☰</div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="contact-card">
-            <h1>Contact Me</h1>
-            <ul>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    <div class="contact-info">
-                        <div class="contact-text">Phone</div>
-                        <div class="email-text">9794576602</div>
-                    </div>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    <div class="contact-info">
-                        <div class="contact-text">Personal Email</div>
-                        <div class="email-text">
-                            <a href="mailto:13ajitesh@gmail.com">13ajitesh@gmail.com</a>
+    <main class="page-content">
+        <h1 class="page-title">Contact Me</h1>
+        
+        <div class="section">
+            <div class="contact-container">
+                <div class="contact-card">
+                    <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Get In Touch</h2>
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <div class="contact-info">
+                                <h3>Phone</h3>
+                                <p>9794576602</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <div class="contact-info">
+                                <h3>Personal Email</h3>
+                                <p><a href="mailto:13ajitesh@gmail.com">13ajitesh@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <div class="contact-info">
+                                <h3>College Email</h3>
+                                <p><a href="mailto:ajitesh.sharma2023@vitstudent.ac.in">ajitesh.sharma2023@vitstudent.ac.in</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                            <div class="contact-info">
+                                <h3>LinkedIn</h3>
+                                <p><a href="https://www.linkedin.com/in/ajitesh-sharma/" target="_blank">Ajitesh Sharma</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            <div class="contact-info">
+                                <h3>GitHub</h3>
+                                <p><a href="https://github.com/AJ1312" target="_blank">AJ1312</a></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <div class="contact-info">
+                                <h3>Address</h3>
+                                <p>VIT Vellore University, Vellore, Tamil Nadu, India</p>
+                            </div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    <div class="contact-info">
-                        <div class="contact-text">College Email</div>
-                        <div class="email-text">
-                            <a href="mailto:ajitesh.sharma2023@vitstudent.ac.in">ajitesh.sharma2023@vitstudent.ac.in</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    <div class="contact-info">
-                        <div class="contact-text">LinkedIn</div>
-                        <div class="email-text">
-                            <a href="https://www.linkedin.com/in/ajitesh-sharma/" target="_blank">Ajitesh Sharma</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                    <div class="contact-info">
-                        <div class="contact-text">GitHub</div>
-                        <div class="email-text">
-                            <a href="https://github.com/AJ1312" target="_blank">AJ1312</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <div class="contact-info">
-                        <div class="contact-text">Address</div>
-                        <div class="email-text">VIT Vellore University, Vellore, Tamil Nadu, India</div>
-                    </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
 
-<!--        /* <div class="message-card">
-            <h2>Send a Message</h2>
-            <input type="email" id="email" placeholder="Enter your email" required>
-            <input type="text" id="message" placeholder="Enter your message" required>
-            <button onclick="sendMessage()">Send Message</button>
-            <p class="confirmation" id="confirmation">Message Sent!</p>
+        <div class="section">
+            <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="#c52424"><path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,13 12,19.5 12,19.5C12,19.5 17,13 17,9A5,5 0 0,0 12,4Z"/></svg> Let's Connect!</h2>
+            <div class="about-content">
+                <p>I'm always excited to connect with fellow developers, discuss new opportunities, or collaborate on interesting projects. Whether you have a question about my work, want to share an idea, or just want to say hello, feel free to reach out!</p>
+                
+                <p>I'm particularly interested in opportunities related to:</p>
+                <ul class="fun-list">
+                    <li>Full-stack development projects</li>
+                    <li>DevOps and CI/CD implementations</li>
+                    <li>AI/ML applications and research</li>
+                    <li>Cybersecurity initiatives</li>
+                    <li>Open-source contributions</li>
+                    <li>Internship and career opportunities</li>
+                </ul>
+                
+                <p>I typically respond to emails within 24-48 hours. Looking forward to hearing from you!</p>
+            </div>
         </div>
-    </div> */ -->
+    </main>
 
-    <script>
-        function toggleMenu() {
-            const navMenu = document.querySelector('nav ul');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            navMenu.classList.toggle('active');
-            
-            // Optional: Animate menu toggle icon
-            menuToggle.classList.toggle('active');
-        }
-
-        function sendMessage() {
-            let email = document.getElementById("email").value;
-            let message = document.getElementById("message").value;
-            let confirmation = document.getElementById("confirmation");
-
-            if (!email.includes("@") || !email.includes(".")) {
-                alert("Please enter a valid email address");
-                return;
-            }
-
-            if (message.trim() === "") {
-                alert("Please enter a message");
-                return;
-            }
-
-            confirmation.style.display = "block";
-            setTimeout(() => { confirmation.style.display = "none"; }, 3000);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
