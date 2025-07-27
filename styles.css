@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-    .intro-section p {
-        margin-top: 100px; /* Increased margin for phones */
-    }
-}
-
 body {
     background-color: #0a0a0a;
     color: #e0e0e0;
@@ -20,7 +14,6 @@ body {
 
 .navbar {
     background-color: #050e16;
-    border-bottom: 1px solid #050f18;
     width: 100%;
     padding: 15px 0;
     position: fixed;
@@ -297,6 +290,7 @@ nav {
 
     .intro-section p {
         font-size: 1rem;
+        margin-top: 100px; /* Increased margin for phones */
     }
 }
 
@@ -464,24 +458,6 @@ nav {
     height: 100%;
     pointer-events: none;
     z-index: 100;
-}
-
-.matrix-rain {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100vh;
-    background: linear-gradient(to bottom, transparent, #c52424, transparent);
-    opacity: 0;
-    animation: matrixRain 8s ease-in-out infinite;
-}
-
-@keyframes matrixRain {
-    0% { opacity: 0; left: 10%; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; left: 90%; }
 }
 
 /* Developer Console */
@@ -1116,6 +1092,28 @@ body {
         margin: 15px 0;
     }
     
+    .education-card h3, .experience-card h3, .activity-card h3 {
+        font-size: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .education-card p, .experience-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        margin: 8px 0;
+    }
+    
+    .education-card svg, .experience-card svg, .activity-card svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+    
     .section h2 {
         font-size: 1.5rem;
         gap: 10px;
@@ -1127,7 +1125,69 @@ body {
     }
     
     .page-content {
-        padding: 100px 10px 30px;
+        padding: 100px 15px 30px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .education-card, .experience-card, .activity-card, .about-content {
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+    }
+    
+    .education-card h3, .experience-card h3, .activity-card h3 {
+        font-size: 1.1rem;
+        gap: 6px;
+    }
+    
+    .education-card p, .experience-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 6px 0;
+    }
+    
+    .education-card svg, .experience-card svg, .activity-card svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .section h2 {
+        font-size: 1.3rem;
+        gap: 8px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .section h2 svg {
+        margin-bottom: 5px;
+    }
+    
+    .section {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    
+    .page-content {
+        padding: 90px 10px 20px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
     }
 }
 
@@ -1263,7 +1323,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -9999;
     overflow: hidden;
     opacity: 0;
     transition: opacity 2s ease;
@@ -1311,51 +1371,6 @@ body {
     }
     100% {
         transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-.speed-indicators {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 2px;
-}
-
-.speed-line {
-    position: absolute;
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #c52424, transparent);
-    animation: speedLines 2s infinite linear;
-}
-
-.speed-line:nth-child(1) {
-    top: -20px;
-    animation-delay: 0s;
-}
-
-.speed-line:nth-child(2) {
-    top: 0px;
-    animation-delay: 0.7s;
-}
-
-.speed-line:nth-child(3) {
-    top: 20px;
-    animation-delay: 1.4s;
-}
-
-@keyframes speedLines {
-    0% {
-        left: -100px;
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        left: 100%;
         opacity: 0;
     }
 }
