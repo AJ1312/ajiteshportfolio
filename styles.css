@@ -1314,6 +1314,19 @@ body {
     .contact-list {
         gap: 15px;
     }
+    
+    .contact-info p {
+        word-break: break-all;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+    
+    .contact-info a {
+        word-break: break-all;
+        overflow-wrap: break-word;
+        display: inline-block;
+        max-width: 100%;
+    }
 }
 
 /* F1 Style Background Animation */
